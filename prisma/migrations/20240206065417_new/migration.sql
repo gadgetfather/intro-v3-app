@@ -4,5 +4,6 @@ CREATE TABLE "Todo" (
     "content" TEXT NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
-    "completed" BOOLEAN NOT NULL DEFAULT false
+    "completed" BOOLEAN NOT NULL DEFAULT false,
+    "notes" TEXT DEFAULT ''
 );
