@@ -2,7 +2,7 @@
 
 import db from '@/utils/db';
 import { revalidatePath } from 'next/cache';
-
+//complete to do server action
 export const completeTodo = async (id: string) => {
   console.log('completeTodo', id);
 
