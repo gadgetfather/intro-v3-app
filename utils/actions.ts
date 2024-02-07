@@ -3,9 +3,20 @@
 import db from '@/utils/db';
 import { revalidatePath } from 'next/cache';
 
-export const newTodo = (formData) => {
-  const data = db.todo.create({ data: { content: formData.get('content') } });
-  console.log('prisma', data);
+export const completeTodo = async (id: string) => {
+  console.log('completeTodo', id);
+
+  const data = await db.todo.update({
+    where: { id },
+    data: { completed: true },
+  });
   revalidatePath('/todos');
-  return data;
+};
+
+export const newTodo = async (formData) => {
+  const data = await db.todo.create({
+    data: { content: formData.get('content') },
+  });
+
+  revalidatePath('/todos');
 };
